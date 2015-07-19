@@ -1,0 +1,42 @@
+#Configuration file for Metapop+
+
+name = prueba     # Identification for this set of parameters. it will be included as part of results' filenames.
+convert = none        # Conversion of the input file to another format. It ignores the remaining configurations. [none/mtp2gp]
+                        # mtp2pg - input file from metapop to genepop format
+debug = false           # Debug mode. Set true to print extra info. [true/false]
+dec = 4                 # Floating point precision 
+ovrwrt = true           # Overwrite results' files: [true] to have new file every execution, [false] to append new replicates
+
+################################################################################
+#               Configuration for analysis of population                       #
+################################################################################
+rarefaction = true      # Rarefaction method in calculation of Allelic Diversity: [true/false]
+rareValue = 10           # Temp!
+synthetic = NA        # Obtain, by simulating annealing, the prop. contrib. of each population to a synthetic population  with optimised [Gt/Gw/Gb/At/Aw/Ab/NA/He/none] total/within/between Genetic/allelic diversity
+nPool = 100           #Pool size (individuals) for synthetic population.
+minimum = 0.0           #Minimal contribution (in %) for each subpopulation
+poolFile = true        #write population contributions to a synthetic pool in poolFile 
+
+################################################################################
+#               Configuration for management method                            #
+################################################################################
+manage = none        # Manage optimizing [genetic] or [allelic] diversity. Also [Nalleles] for optimizing total expected number of alleles, [random] for random mating(no management) Or no manage [none] for skip it
+method = dynamic        # management method used for GD management [dynamic/ompg/isolated]
+
+##############restrictions##########
+max_migrants = 2
+lambda = 1.0
+# max_delta_F = 0.0     # comment/uncomment to disable/enable
+# max_offs_mate = 2     # comment/uncomment to disable/enable
+monogamy =  false
+weight_F_isol = 1       # weight for inbreeding optimisation (for ompg and isolated methods only)
+
+############Simulated annealing########
+SA_steps = 1000
+SA_temp = 0.1
+SA_k = 0.9
+
+####Configuration for Simulation mode######
+simMode = false         # Simulation mode [true/false]
+simReps = 3             # Replicates for simulation
+simGens = 2              # Generations for simulation

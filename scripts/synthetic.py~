@@ -1,0 +1,84 @@
+#! /usr/bin/env python
+__author__="Andres Perez-Figueroa"
+__date__ ="$16-mar-2015 11:05:00$"
+__version_="0.1"
+# Alternative to Ana's program to make syntehtic populations
+
+from sys import exit
+import sys
+import random
+
+
+if __name__ == "__main__":
+	#Arguments: quanti_genotype ntrl_genotype poolFile outdir
+	if len(sys.argv)<5:
+		print "Argument missing! USAGE: python %s quanti_genotype ntrl_genotype poolFile outdir" % sys.argv[0]
+ 		sys.exit(-1)
+
+	ntrlINfile=sys.argv[2]
+	quantiINfile=sys.argv[1]	
+	
+	pops= 8
+	replicates=100
+	poolfile=sys.argv[3]
+	outdir=sys.argv[4]
+
+	try:
+		quantiLines=[]
+		handle = open(quantiINfile)
+ 	    	for line in handle.xreadlines():
+			quantiLines.append(line)
+	except IOError:
+		print "Can not open file " + quantiINfile + " to read. Exiting"
+		exit(2)
+	except:
+		exit(3)
+
+	handle.close()
+
+	try:
+		ntrlLines=[]
+		handle = open(ntrlINfile)
+ 	    	for line in handle.xreadlines():
+			ntrlLines.append(line)
+	except IOError:
+		print "Can not open file " + ntrlINfile + " to read. Exiting"
+		exit(2)
+	except:
+		exit(3)
+	handle.close()
+
+	popsbegin=[1,2001,2101,2201,2301,2401,2501,2601] #Only for scenario A, of course
+	popsend=[2000,2100,2200,2300,2400,2500,2600,2700]
+	pool=map(int, file(poolfile, "r").readlines()[-1].split() )
+
+	#REPLICATES
+	for r in xrange(1,101):
+		index="%03d"%r
+		syn_index=[]
+		for p in xrange(8):
+			if pool[p]>0:
+				syn_index+=random.sample(xrange(popsbegin[p],popsend[p]+1), pool[p])
+			
+	
+		ntrlOUTfile=outdir+"/ntrl_genotype_"+index+".dat"
+		quantiOUTfile=outdir+"/quanti_genotype_"+index+".dat"
+	
+		try:
+			qt = open(quantiOUTfile, "w")
+		except IOError:
+			print "Can not open file " + quantiOUTfile + " to write. Exiting"
+			exit(2)
+		try:
+			nt = open(ntrlOUTfile, "w")
+		except IOError:
+			print "Can not open file " + ntrlOUTfile + " to write. Exiting"
+			exit(2)
+		for x in syn_index:
+			qt.write(quantiLines[x-1])
+			nt.write(ntrlLines[x-1])
+		qt.close()
+		nt.close()
+
+
+
