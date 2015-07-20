@@ -8,7 +8,8 @@ This scripts and programs were developed for a linux cluster using bash, python,
 
 The program selection.c needs to be compiled in advance using the libraries genlib.c ranlib.c com.c and linpack.c.
 
-The third-part programs metapop (Pérez-Figueroa et al. 2008, download: https://dl.dropboxusercontent.com/u/3144341/metapopweb/metapop.14.08.zip Unzip the file and run make. This will create an executable file called metapop) and quantiNemo (v1.0.4, Neuenschwander et al., 2008, download: http://www2.unil.ch/popgen/softwares/quantinemo/) need to be compiled and the binaries added into the $PATH
+The third-part programs metapop (Pérez-Figueroa et al. 2008, download: https://dl.dropboxusercontent.com/u/3144341/metapopweb/metapop.14.08.zip) and quantiNemo (v1.0.4, Neuenschwander et al., 2008, download: http://www2.unil.ch/popgen/softwares/quantinemo/) need to be compiled and the binaries added into the $PATH.
+For metapop just unzip the file and run ```make```. This will create a binary file called metapop to be moved to your PATH.
 
 ## Files
 These are the descriptions of the different files in this repository, divided into scripts and templates directories.
