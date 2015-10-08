@@ -1,6 +1,8 @@
 #ALLELIC DIVERSITY AND ADAPTIVE POTENTIAL
 
-This repository includes code scripts and parameter files for the simulation analyses showed in the paper: Vilas et. al. **Allelic diversity for neutral markers retains a higher adaptive potential for quantitative traits than expected heterozygosity** currently under revision on *Molecular Ecology* (MEC-15-0617). Please refer to the text in the paper in order to understand the following descriptions.
+This repository includes code scripts and parameter files for the simulation analyses showed in the paper: 
+Vilas, A., Pérez-Figueroa, A., Quesada, H. and Caballero, A. (2015), Allelic diversity for neutral markers retains a higher adaptive potential for quantitative traits than expected heterozygosity. *Molecular Ecology*, **24**: 4419–4432. [doi: 10.1111/mec.13334](http://onlinelibrary.wiley.com/doi/10.1111/mec.13334/abstract;jsessionid=9FADE04936939E3F1DB74B3B7640AACD.f03t02). 
+Please refer to the text in the paper in order to fully understand the following descriptions.
 
 ## Requirements
 
